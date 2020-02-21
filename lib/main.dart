@@ -83,6 +83,7 @@ class _MyAppState extends State<MyApp> {
                               series: <ChartSeries>[
                                 // Renders area chart
                                 AreaSeries<SalesData, double>(
+                                  color: Colors.blue,
                                     dataSource: chartData,
                                     xValueMapper: (SalesData sales, _) =>
                                         sales.year,
@@ -93,7 +94,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox(
                         height: (MediaQuery.of(context).size.height) * 0.33,
-                        width: 2.0,
+                        width: 4.0,
                       ),
                       Expanded(
                         child: Container(
@@ -110,6 +111,7 @@ class _MyAppState extends State<MyApp> {
                                 series: <ChartSeries>[
                                   // Renders fast line chart
                                   FastLineSeries<SalesData, double>(
+                                    color: Colors.blue,
                                       dataSource: chartData,
                                       xValueMapper: (SalesData sales, _) =>
                                           sales.year,
@@ -122,7 +124,7 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   SizedBox(
-                    height: 2.0,
+                    height: 4.0,
                     width: MediaQuery.of(context).size.width,
                   ),
                   Row(
@@ -237,7 +239,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox(
                         height: (MediaQuery.of(context).size.height) * 0.33,
-                        width: 2.0,
+                        width: 4.0,
                       ),
                       Expanded(
                         child: Container(
@@ -252,6 +254,7 @@ class _MyAppState extends State<MyApp> {
                               ),
                               series: <ChartSeries>[
                                 RangeColumnSeries<ChartDataLebel, String>(
+                                  color: Colors.blue,
                                   dataSource: chartDataLebel,
                                   xValueMapper: (ChartDataLebel sales, _) =>
                                       sales.x,
@@ -270,7 +273,7 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   SizedBox(
-                    height: 2.0,
+                    height: 4.0,
                     width: MediaQuery.of(context).size.width,
                   ),
                   Row(
@@ -288,6 +291,7 @@ class _MyAppState extends State<MyApp> {
                               // Renders bar chart
                               BarSeries<SalesDataBar, double>(
                                   dataSource: chartDataBar,
+                                  color: Colors.blueGrey,
                                   xValueMapper: (SalesDataBar sales, _) =>
                                       sales.year,
                                   yValueMapper: (SalesDataBar sales, _) =>
@@ -296,7 +300,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.33,
-                        width: 2.0,
+                        width: 4.0,
                       ),
                       Expanded(
                         child: Container(
