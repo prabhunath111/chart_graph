@@ -5,26 +5,18 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 void main() {
   runApp(MaterialApp(
     showSemanticsDebugger: false,
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
-          primaryColor: Colors.blue
-    ),
     home: MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
-
   @override
   _MyAppState createState() => _MyAppState();
-
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
-
     final List<SalesData> chartData = [
       SalesData(2010, 35),
       SalesData(2011, 28),
@@ -46,38 +38,40 @@ class _MyAppState extends State<MyApp> {
       ChartDataLebel('2014', 40, 0.34)
     ];
     final List<SalesDataBar> chartDataBar = [
-      SalesDataBar(2010,  23),
+      SalesDataBar(2010, 23),
       SalesDataBar(2011, 49),
-      SalesDataBar(2012,  12),
-      SalesDataBar(2013,  33),
-      SalesDataBar(2014,  30)
+      SalesDataBar(2012, 12),
+      SalesDataBar(2013, 33),
+      SalesDataBar(2014, 30)
     ];
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+          backgroundColor: Colors.white,
           appBar: AppBar(
             leading: Icon(Icons.close),
             backgroundColor: Colors.black,
-            title: Text('Live Stream Report',style: TextStyle(color: Colors.white),),
+            title: Text(
+              'Live Stream Report',
+              style: TextStyle(color: Colors.white),
+            ),
             actions: <Widget>[
               PopupMenuButton<String>(
-                itemBuilder: (BuildContext context){
-                  return ;
+                itemBuilder: (BuildContext context) {
+                  return;
                 },
               )
             ],
           ),
-          body:
-          ListView(
+          body: ListView(
             children: <Widget>[
               Column(
                 children: <Widget>[
                   Row(
                     children: <Widget>[
                       Container(
-                        height: (MediaQuery.of(context).size.height)*0.33,
-                        width: (MediaQuery.of(context).size.width)*0.5,
+                        height: (MediaQuery.of(context).size.height) * 0.33,
+                        width: (MediaQuery.of(context).size.width) * 0.5,
                         color: Colors.grey,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -90,23 +84,22 @@ class _MyAppState extends State<MyApp> {
                                 // Renders area chart
                                 AreaSeries<SalesData, double>(
                                     dataSource: chartData,
-                                    xValueMapper: (SalesData sales, _) => sales.year,
-                                    yValueMapper: (SalesData sales, _) => sales.sales
-                                )
-                              ]
-                          ),
+                                    xValueMapper: (SalesData sales, _) =>
+                                        sales.year,
+                                    yValueMapper: (SalesData sales, _) =>
+                                        sales.sales)
+                              ]),
                         ),
-
                       ),
                       SizedBox(
-                        height: (MediaQuery.of(context).size.height)*0.33,
+                        height: (MediaQuery.of(context).size.height) * 0.33,
                         width: 2.0,
                       ),
                       Expanded(
                         child: Container(
                           color: Colors.grey,
-                          height: (MediaQuery.of(context).size.height)*0.33,
-                          width: (MediaQuery.of(context).size.width)*0.5,
+                          height: (MediaQuery.of(context).size.height) * 0.33,
+                          width: (MediaQuery.of(context).size.width) * 0.5,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SfCartesianChart(
@@ -118,11 +111,11 @@ class _MyAppState extends State<MyApp> {
                                   // Renders fast line chart
                                   FastLineSeries<SalesData, double>(
                                       dataSource: chartData,
-                                      xValueMapper: (SalesData sales, _) => sales.year,
-                                      yValueMapper: (SalesData sales, _) => sales.sales
-                                  )
-                                ]
-                            ),
+                                      xValueMapper: (SalesData sales, _) =>
+                                          sales.year,
+                                      yValueMapper: (SalesData sales, _) =>
+                                          sales.sales)
+                                ]),
                           ),
                         ),
                       ),
@@ -139,8 +132,8 @@ class _MyAppState extends State<MyApp> {
                         children: <Widget>[
                           Container(
                             color: Colors.grey,
-                            height: (MediaQuery.of(context).size.height)*0.33,
-                            width: (MediaQuery.of(context).size.width)*0.35,
+                            height: (MediaQuery.of(context).size.height) * 0.33,
+                            width: (MediaQuery.of(context).size.width) * 0.35,
                             child: SfCircularChart(
                                 title: ChartTitle(
                                   text: 'pie Chart',
@@ -150,30 +143,107 @@ class _MyAppState extends State<MyApp> {
                                   // Render pie chart
                                   PieSeries<ChartData, String>(
                                       dataSource: chartDataCircle,
-                                      pointColorMapper:(ChartData data,  _) => data.color,
-                                      xValueMapper: (ChartData data, _) => data.x,
-                                      yValueMapper: (ChartData data, _) => data.y
-                                  )
-                                ]
-                            ),
+                                      pointColorMapper: (ChartData data, _) =>
+                                          data.color,
+                                      xValueMapper: (ChartData data, _) =>
+                                          data.x,
+                                      yValueMapper: (ChartData data, _) =>
+                                          data.y)
+                                ]),
                           ),
                           Container(
                             color: Colors.grey,
                             height: MediaQuery.of(context).size.height * 0.33,
-                            width: MediaQuery.of(context).size.width *0.3,
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.deepOrange,
+                                      ),
+                                      Text('20.4%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.deepOrangeAccent,
+                                      ),
+                                      Text('26.4%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.black54,
+                                      ),
+                                      Text('30.5%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.black,
+                                      ),
+                                      Text('36.4%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.lightBlueAccent,
+                                      ),
+                                      Text('39.5%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.blue,
+                                      ),
+                                      Text('40.5%'),
+                                      Text('ABC'),
+                                    ]),
+                              ],
+                            ),
                           ),
-
                         ],
                       ),
                       SizedBox(
-                        height: (MediaQuery.of(context).size.height)*0.33,
+                        height: (MediaQuery.of(context).size.height) * 0.33,
                         width: 2.0,
                       ),
                       Expanded(
                         child: Container(
                           color: Colors.grey,
-                          height: (MediaQuery.of(context).size.height)*0.33,
-                          width: (MediaQuery.of(context).size.width)*0.5,
+                          height: (MediaQuery.of(context).size.height) * 0.33,
+                          width: (MediaQuery.of(context).size.width) * 0.5,
                           child: SfCartesianChart(
                               primaryXAxis: CategoryAxis(),
                               title: ChartTitle(
@@ -183,16 +253,18 @@ class _MyAppState extends State<MyApp> {
                               series: <ChartSeries>[
                                 RangeColumnSeries<ChartDataLebel, String>(
                                   dataSource: chartDataLebel,
-                                  xValueMapper: (ChartDataLebel sales, _) => sales.x,
-                                  lowValueMapper: (ChartDataLebel sales, _) => sales.low,
-                                  highValueMapper: (ChartDataLebel sales, _) => sales.high,
+                                  xValueMapper: (ChartDataLebel sales, _) =>
+                                      sales.x,
+                                  lowValueMapper: (ChartDataLebel sales, _) =>
+                                      sales.low,
+                                  highValueMapper: (ChartDataLebel sales, _) =>
+                                      sales.high,
                                   dataLabelSettings: DataLabelSettings(
                                     isVisible: true,
 //                              position: CartesianLabelPosition.top
                                   ),
                                 )
-                              ]
-                          ),
+                              ]),
                         ),
                       ),
                     ],
@@ -216,11 +288,11 @@ class _MyAppState extends State<MyApp> {
                               // Renders bar chart
                               BarSeries<SalesDataBar, double>(
                                   dataSource: chartDataBar,
-                                  xValueMapper: (SalesDataBar sales, _) => sales.year,
-                                  yValueMapper: (SalesDataBar sales, _) => sales.sales
-                              )
-                            ]
-                        ),
+                                  xValueMapper: (SalesDataBar sales, _) =>
+                                      sales.year,
+                                  yValueMapper: (SalesDataBar sales, _) =>
+                                      sales.sales)
+                            ]),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.33,
@@ -240,11 +312,11 @@ class _MyAppState extends State<MyApp> {
                                 // Renders bar chart
                                 BarSeries<SalesDataBar, double>(
                                     dataSource: chartDataBar,
-                                    xValueMapper: (SalesDataBar sales, _) => sales.year,
-                                    yValueMapper: (SalesDataBar sales, _) => sales.sales
-                                )
-                              ]
-                          ),
+                                    xValueMapper: (SalesDataBar sales, _) =>
+                                        sales.year,
+                                    yValueMapper: (SalesDataBar sales, _) =>
+                                        sales.sales)
+                              ]),
                         ),
                       ),
                     ],
@@ -252,20 +324,21 @@ class _MyAppState extends State<MyApp> {
                 ],
               ),
             ],
-          )
-      ),
+          )),
     );
-
   }
 }
 
 class SalesData {
   SalesData(this.year, this.sales);
+
   final double year;
   final double sales;
 }
+
 class ChartData {
   ChartData(this.x, this.y, [this.color]);
+
   final String x;
   final double y;
   final Color color;
@@ -273,6 +346,7 @@ class ChartData {
 
 class ChartDataLebel {
   ChartDataLebel(this.x, this.high, this.low);
+
   final String x;
   final double high;
   final double low;
@@ -280,6 +354,7 @@ class ChartDataLebel {
 
 class SalesDataBar {
   SalesDataBar(this.year, this.sales);
+
   final double year;
   final double sales;
 }
