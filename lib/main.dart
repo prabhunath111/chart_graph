@@ -140,7 +140,7 @@ class _MyAppState extends State<MyApp> {
                           Container(
                             color: Colors.grey,
                             height: (MediaQuery.of(context).size.height)*0.33,
-                            width: (MediaQuery.of(context).size.width)*0.65,
+                            width: (MediaQuery.of(context).size.width)*0.35,
                             child: SfCircularChart(
                                 title: ChartTitle(
                                   text: 'pie Chart',
@@ -149,7 +149,6 @@ class _MyAppState extends State<MyApp> {
                                 series: <CircularSeries>[
                                   // Render pie chart
                                   PieSeries<ChartData, String>(
-
                                       dataSource: chartDataCircle,
                                       pointColorMapper:(ChartData data,  _) => data.color,
                                       xValueMapper: (ChartData data, _) => data.x,
@@ -157,8 +156,13 @@ class _MyAppState extends State<MyApp> {
                                   )
                                 ]
                             ),
-
                           ),
+                          Container(
+                            color: Colors.grey,
+                            height: MediaQuery.of(context).size.height * 0.33,
+                            width: MediaQuery.of(context).size.width *0.3,
+                          ),
+
                         ],
                       ),
                       SizedBox(
