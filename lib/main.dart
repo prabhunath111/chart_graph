@@ -21,6 +21,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
 
@@ -68,6 +69,131 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
           body:
+          Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Container(
+                    height: (MediaQuery.of(context).size.height)*0.33,
+                    width: (MediaQuery.of(context).size.width)*0.5,
+                    color: Colors.grey,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SfCartesianChart(
+                          title: ChartTitle(
+                            text: 'Area Chart',
+                            alignment: ChartAlignment.near,
+                          ),
+                          series: <ChartSeries>[
+                            // Renders area chart
+                            AreaSeries<SalesData, double>(
+                                dataSource: chartData,
+                                xValueMapper: (SalesData sales, _) => sales.year,
+                                yValueMapper: (SalesData sales, _) => sales.sales
+                            )
+                          ]
+                      ),
+                    ),
+
+                  ),
+                  SizedBox(
+                    height: (MediaQuery.of(context).size.height)*0.33,
+                    width: 2.0,
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.grey,
+                      height: (MediaQuery.of(context).size.height)*0.33,
+                      width: (MediaQuery.of(context).size.width)*0.5,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SfCartesianChart(
+                            title: ChartTitle(
+                              text: 'Line Chart',
+                              alignment: ChartAlignment.near,
+                            ),
+                            series: <ChartSeries>[
+                              // Renders fast line chart
+                              FastLineSeries<SalesData, double>(
+                                  dataSource: chartData,
+                                  xValueMapper: (SalesData sales, _) => sales.year,
+                                  yValueMapper: (SalesData sales, _) => sales.sales
+                              )
+                            ]
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 2.0,
+                width: MediaQuery.of(context).size.width,
+              ),
+              Row(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        color: Colors.grey,
+                        height: (MediaQuery.of(context).size.height)*0.33,
+                        width: (MediaQuery.of(context).size.width)*0.65,
+                        child: SfCircularChart(
+                            title: ChartTitle(
+                              text: 'pie Chart',
+                              alignment: ChartAlignment.near,
+                            ),
+                            series: <CircularSeries>[
+                              // Render pie chart
+                              PieSeries<ChartData, String>(
+
+                                  dataSource: chartDataCircle,
+                                  pointColorMapper:(ChartData data,  _) => data.color,
+                                  xValueMapper: (ChartData data, _) => data.x,
+                                  yValueMapper: (ChartData data, _) => data.y
+                              )
+                            ]
+                        ),
+
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: (MediaQuery.of(context).size.height)*0.33,
+                    width: 2.0,
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.grey,
+                      height: (MediaQuery.of(context).size.height)*0.33,
+                      width: (MediaQuery.of(context).size.width)*0.5,
+                      child: SfCartesianChart(
+                          primaryXAxis: CategoryAxis(),
+                          title: ChartTitle(
+                            text: 'Data lebel Chart',
+                            alignment: ChartAlignment.near,
+                          ),
+                          series: <ChartSeries>[
+                            RangeColumnSeries<ChartDataLebel, String>(
+                              dataSource: chartDataLebel,
+                              xValueMapper: (ChartDataLebel sales, _) => sales.x,
+                              lowValueMapper: (ChartDataLebel sales, _) => sales.low,
+                              highValueMapper: (ChartDataLebel sales, _) => sales.high,
+                              dataLabelSettings: DataLabelSettings(
+                                isVisible: true,
+//                              position: CartesianLabelPosition.top
+                              ),
+                            )
+                          ]
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+
           /*Column(
             children: <Widget>[
               Row(
@@ -184,6 +310,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
           )*/
+/*
           SafeArea(
             child: OrientationBuilder(builder: (context, orientation) {
               return GridView.count(
@@ -307,7 +434,7 @@ class _MyAppState extends State<MyApp> {
               );
             }),
           )
-
+*/
 
       ),
     );
