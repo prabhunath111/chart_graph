@@ -157,82 +157,85 @@ class _MyAppState extends State<MyApp> {
                             color: Colors.grey,
                             height: MediaQuery.of(context).size.height * 0.33,
                             width: MediaQuery.of(context).size.width * 0.3,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 10.0,
-                                        width: 10.0,
-                                        color: Colors.deepOrange,
-                                      ),
-                                      Text('20.4%'),
-                                      Text('ABC'),
-                                    ]),
-                                Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 10.0,
-                                        width: 10.0,
-                                        color: Colors.deepOrangeAccent,
-                                      ),
-                                      Text('26.4%'),
-                                      Text('ABC'),
-                                    ]),
-                                Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 10.0,
-                                        width: 10.0,
-                                        color: Colors.black54,
-                                      ),
-                                      Text('30.5%'),
-                                      Text('ABC'),
-                                    ]),
-                                Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 10.0,
-                                        width: 10.0,
-                                        color: Colors.black,
-                                      ),
-                                      Text('36.4%'),
-                                      Text('ABC'),
-                                    ]),
-                                Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 10.0,
-                                        width: 10.0,
-                                        color: Colors.lightBlueAccent,
-                                      ),
-                                      Text('39.5%'),
-                                      Text('ABC'),
-                                    ]),
-                                Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      Container(
-                                        height: 10.0,
-                                        width: 10.0,
-                                        color: Colors.blue,
-                                      ),
-                                      Text('40.5%'),
-                                      Text('ABC'),
-                                    ]),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(top:32.0,bottom: 32.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: <Widget>[
+                                        Container(
+                                          height: 10.0,
+                                          width: 10.0,
+                                          color: Colors.deepOrange,
+                                        ),
+                                        Text('20.4%'),
+                                        Text('ABC'),
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: <Widget>[
+                                        Container(
+                                          height: 10.0,
+                                          width: 10.0,
+                                          color: Colors.deepOrangeAccent,
+                                        ),
+                                        Text('26.4%'),
+                                        Text('ABC'),
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: <Widget>[
+                                        Container(
+                                          height: 10.0,
+                                          width: 10.0,
+                                          color: Colors.black54,
+                                        ),
+                                        Text('30.5%'),
+                                        Text('ABC'),
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: <Widget>[
+                                        Container(
+                                          height: 10.0,
+                                          width: 10.0,
+                                          color: Colors.black,
+                                        ),
+                                        Text('36.4%'),
+                                        Text('ABC'),
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: <Widget>[
+                                        Container(
+                                          height: 10.0,
+                                          width: 10.0,
+                                          color: Colors.lightBlueAccent,
+                                        ),
+                                        Text('39.5%'),
+                                        Text('ABC'),
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: <Widget>[
+                                        Container(
+                                          height: 10.0,
+                                          width: 10.0,
+                                          color: Colors.blue,
+                                        ),
+                                        Text('40.5%'),
+                                        Text('ABC'),
+                                      ]),
+                                ],
+                              ),
                             ),
                           ),
                         ],
