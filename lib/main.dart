@@ -32,17 +32,17 @@ class _MyAppState extends State<MyApp> {
     ];
 
     final List<ChartDataLebel> chartDataLebel = [
-      ChartDataLebel('2010', 35, 11),
-      ChartDataLebel('2011', 38, 10),
-      ChartDataLebel('2012', 34, 14),
-      ChartDataLebel('2014', 40, 13)
+      ChartDataLebel('2010', 65, 0),
+      ChartDataLebel('2011', 32, 0),
+//      ChartDataLebel('2012', 34, 14),
+//      ChartDataLebel('2014', 40, 13)
     ];
     final List<SalesDataBar> chartDataBar = [
-      SalesDataBar(2010, 23),
-      SalesDataBar(2011, 49),
-      SalesDataBar(2012, 12),
-      SalesDataBar(2013, 33),
-      SalesDataBar(2014, 30)
+      SalesDataBar(2010, 25),
+      SalesDataBar(2011, 35),
+      SalesDataBar(2012, 75),
+//      SalesDataBar(2013, 33),
+//      SalesDataBar(2014, 30)
     ];
 
     return SafeArea(
@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: <Widget>[
                       Container(
-                        height: (MediaQuery.of(context).size.height) * 0.22,
+                        height: (MediaQuery.of(context).size.height) * 0.2,
                         width: (MediaQuery.of(context).size.width) * 0.5,
                         color: Color(0xFFEFF3F4),
                         child: Padding(
@@ -79,6 +79,9 @@ class _MyAppState extends State<MyApp> {
                               title: ChartTitle(
                                 text: 'Area Chart',
                                 alignment: ChartAlignment.near,
+                                textStyle: ChartTextStyle(
+                                  fontSize: 12.0
+                                ),
                               ),
                               series: <ChartSeries>[
                                 // Renders area chart
@@ -97,13 +100,13 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       SizedBox(
-                        height: (MediaQuery.of(context).size.height) * 0.22,
-                        width: 4.0,
+                        height: (MediaQuery.of(context).size.height) * 0.2,
+                        width: 6.0,
                       ),
                       Expanded(
                         child: Container(
                           color: Color(0xFFEFF3F4),
-                          height: (MediaQuery.of(context).size.height) * 0.22,
+                          height: (MediaQuery.of(context).size.height) * 0.2,
                           width: (MediaQuery.of(context).size.width) * 0.5,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -111,6 +114,9 @@ class _MyAppState extends State<MyApp> {
                                 title: ChartTitle(
                                   text: 'Line Chart',
                                   alignment: ChartAlignment.near,
+                                  textStyle: ChartTextStyle(
+                                    fontSize: 12.0
+                                  )
                                 ),
                                 series: <ChartSeries>[
                                   // Renders fast line chart
@@ -129,7 +135,7 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   SizedBox(
-                    height: 4.0,
+                    height: 6.0,
                     width: MediaQuery.of(context).size.width,
                   ),
                   Row(
@@ -140,12 +146,15 @@ class _MyAppState extends State<MyApp> {
                           Container(
                             padding: EdgeInsets.only(bottom: 32.0, left: 2.0),
                             color: Color(0xFFEFF3F4),
-                            height: (MediaQuery.of(context).size.height) * 0.22,
+                            height: (MediaQuery.of(context).size.height) * 0.2,
                             width: (MediaQuery.of(context).size.width) * 0.35,
                             child: SfCircularChart(
                                 title: ChartTitle(
                                   text: 'pie Chart',
                                   alignment: ChartAlignment.near,
+                                  textStyle: ChartTextStyle(
+                                    fontSize: 12.0
+                                  )
                                 ),
                                 series: <CircularSeries>[
                                   // Render pie chart
@@ -161,7 +170,7 @@ class _MyAppState extends State<MyApp> {
                           ),
                           Container(
                             color: Color(0xFFEFF3F4),
-                            height: MediaQuery.of(context).size.height * 0.22,
+                            height: MediaQuery.of(context).size.height * 0.2,
                             width: MediaQuery.of(context).size.width * 0.3,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -244,19 +253,22 @@ class _MyAppState extends State<MyApp> {
                         ],
                       ),
                       SizedBox(
-                        height: (MediaQuery.of(context).size.height) * 0.22,
-                        width: 4.0,
+                        height: (MediaQuery.of(context).size.height) * 0.2,
+                        width: 6.0,
                       ),
                       Expanded(
                         child: Container(
                           color: Color(0xFFEFF3F4),
-                          height: (MediaQuery.of(context).size.height) * 0.22,
+                          height: (MediaQuery.of(context).size.height) * 0.2,
                           width: (MediaQuery.of(context).size.width) * 0.5,
                           child: SfCartesianChart(
                               primaryXAxis: CategoryAxis(),
                               title: ChartTitle(
                                 text: 'Data lebel Chart',
                                 alignment: ChartAlignment.near,
+                                textStyle: ChartTextStyle(
+                                  fontSize: 12.0
+                                )
                               ),
                               series: <ChartSeries>[
                                 RangeColumnSeries<ChartDataLebel, String>(
@@ -281,7 +293,7 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   SizedBox(
-                    height: 4.0,
+                    height: 6.0,
                     width: MediaQuery.of(context).size.width,
                   ),
                   Row(
@@ -289,41 +301,22 @@ class _MyAppState extends State<MyApp> {
                       Container(
                         color: Color(0xFFEFF3F4),
                         width: MediaQuery.of(context).size.width * 0.33,
-                        height: MediaQuery.of(context).size.height * 0.22,
-                        child: SfCartesianChart(
-                            title: ChartTitle(
-                              text: 'Bar Chart',
-                              alignment: ChartAlignment.near,
-                            ),
-                            series: <ChartSeries>[
-                              // Renders bar chart
-                              BarSeries<SalesDataBar, double>(
-                                  dataSource: chartDataBar,
-                                  color: Color(0xFFAFE2FD),
-                                  xValueMapper: (SalesDataBar sales, _) =>
-                                      sales.year,
-                                  yValueMapper: (SalesDataBar sales, _) =>
-                                      sales.sales)
-                            ]),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.22,
-                        width: 4.0,
-                      ),
-                      Expanded(
-                        child: Container(
-                          color: Color(0xFFEFF3F4),
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.22,
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
                           child: SfCartesianChart(
                               title: ChartTitle(
                                 text: 'Bar Chart',
                                 alignment: ChartAlignment.near,
+                                  textStyle: ChartTextStyle(
+                                      fontSize: 12.0
+                                  )
                               ),
                               series: <ChartSeries>[
                                 // Renders bar chart
                                 BarSeries<SalesDataBar, double>(
                                     dataSource: chartDataBar,
+//                                  color: Color(0xFFAFE2FD),
                                     xValueMapper: (SalesDataBar sales, _) =>
                                         sales.year,
                                     yValueMapper: (SalesDataBar sales, _) =>
@@ -332,28 +325,66 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.22,
-                        width: 4.0,
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: 6.0,
                       ),
                       Expanded(
                         child: Container(
                           color: Color(0xFFEFF3F4),
                           width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.22,
-                          child: SfCartesianChart(
-                              title: ChartTitle(
-                                text: 'Bar Chart',
-                                alignment: ChartAlignment.near,
-                              ),
-                              series: <ChartSeries>[
-                                // Renders bar chart
-                                BarSeries<SalesDataBar, double>(
-                                    dataSource: chartDataBar,
-                                    xValueMapper: (SalesDataBar sales, _) =>
-                                        sales.year,
-                                    yValueMapper: (SalesDataBar sales, _) =>
-                                        sales.sales)
-                              ]),
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SfCartesianChart(
+                                title: ChartTitle(
+                                  text: 'Bar Chart',
+                                  alignment: ChartAlignment.near,
+                                    textStyle: ChartTextStyle(
+                                        fontSize: 12.0
+                                    )
+                                ),
+                                series: <ChartSeries>[
+                                  // Renders bar chart
+                                  BarSeries<SalesDataBar, double>(
+                                      dataSource: chartDataBar,
+                                      xValueMapper: (SalesDataBar sales, _) =>
+                                          sales.year,
+                                      yValueMapper: (SalesDataBar sales, _) =>
+                                          sales.sales)
+                                ]
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: 6.0,
+                      ),
+                      Expanded(
+                        child: Container(
+                          color: Color(0xFFEFF3F4),
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SfCartesianChart(
+                                title: ChartTitle(
+                                  text: 'Bar Chart',
+                                  alignment: ChartAlignment.near,
+                                    textStyle: ChartTextStyle(
+                                        fontSize: 12.0
+                                    )
+                                ),
+                                series: <ChartSeries>[
+                                  // Renders bar chart
+                                  BarSeries<SalesDataBar, double>(
+                                      dataSource: chartDataBar,
+                                      xValueMapper: (SalesDataBar sales, _) =>
+                                          sales.year,
+                                      yValueMapper: (SalesDataBar sales, _) =>
+                                          sales.sales)
+                                ]),
+                          ),
                         ),
                       ),
                     ],
