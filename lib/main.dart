@@ -303,7 +303,7 @@ class _MyAppState extends State<MyApp> {
                         width: MediaQuery.of(context).size.width * 0.33,
                         height: MediaQuery.of(context).size.height * 0.2,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.only(right: 8.0),
                           child: SfCartesianChart(
                               title: ChartTitle(
                                 text: 'Bar Chart',
@@ -334,7 +334,7 @@ class _MyAppState extends State<MyApp> {
                           width: MediaQuery.of(context).size.width * 0.5,
                           height: MediaQuery.of(context).size.height * 0.2,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(right:8.0),
                             child: SfCartesianChart(
                                 title: ChartTitle(
                                   text: 'Bar Chart',
@@ -366,7 +366,7 @@ class _MyAppState extends State<MyApp> {
                           width: MediaQuery.of(context).size.width * 0.5,
                           height: MediaQuery.of(context).size.height * 0.2,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(right:8.0),
                             child: SfCartesianChart(
                                 title: ChartTitle(
                                   text: 'Bar Chart',
