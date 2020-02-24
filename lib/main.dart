@@ -32,10 +32,10 @@ class _MyAppState extends State<MyApp> {
     ];
 
     final List<ChartDataLebel> chartDataLebel = [
-      ChartDataLebel('2010', 35, 0.32),
-      ChartDataLebel('2011', 38, 0.21),
-      ChartDataLebel('2012', 34, 0.38),
-      ChartDataLebel('2014', 40, 0.34)
+      ChartDataLebel('2010', 35, 11),
+      ChartDataLebel('2011', 38, 10),
+      ChartDataLebel('2012', 34, 14),
+      ChartDataLebel('2014', 40, 13)
     ];
     final List<SalesDataBar> chartDataBar = [
       SalesDataBar(2010, 23),
@@ -70,9 +70,9 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: <Widget>[
                       Container(
-                        height: (MediaQuery.of(context).size.height) * 0.33,
+                        height: (MediaQuery.of(context).size.height) * 0.22,
                         width: (MediaQuery.of(context).size.width) * 0.5,
-                        color: Colors.grey,
+                        color: Color(0xFFEFF3F4),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SfCartesianChart(
@@ -83,8 +83,12 @@ class _MyAppState extends State<MyApp> {
                               series: <ChartSeries>[
                                 // Renders area chart
                                 AreaSeries<SalesData, double>(
-                                    color: Colors.blue,
+                                  legendItemText: '18',
+                                  isVisibleInLegend: false,
+
+                                    color: Color(0xFFAFE2FD),
                                     dataSource: chartData,
+
                                     xValueMapper: (SalesData sales, _) =>
                                         sales.year,
                                     yValueMapper: (SalesData sales, _) =>
@@ -93,13 +97,13 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       SizedBox(
-                        height: (MediaQuery.of(context).size.height) * 0.33,
+                        height: (MediaQuery.of(context).size.height) * 0.22,
                         width: 4.0,
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.grey,
-                          height: (MediaQuery.of(context).size.height) * 0.33,
+                          color: Color(0xFFEFF3F4),
+                          height: (MediaQuery.of(context).size.height) * 0.22,
                           width: (MediaQuery.of(context).size.width) * 0.5,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -111,7 +115,8 @@ class _MyAppState extends State<MyApp> {
                                 series: <ChartSeries>[
                                   // Renders fast line chart
                                   FastLineSeries<SalesData, double>(
-                                      color: Colors.blue,
+
+                                      color: Color(0xFFAFE2FD),
                                       dataSource: chartData,
                                       xValueMapper: (SalesData sales, _) =>
                                           sales.year,
@@ -134,8 +139,8 @@ class _MyAppState extends State<MyApp> {
                         children: <Widget>[
                           Container(
                             padding: EdgeInsets.only(bottom: 32.0, left: 2.0),
-                            color: Colors.grey,
-                            height: (MediaQuery.of(context).size.height) * 0.33,
+                            color: Color(0xFFEFF3F4),
+                            height: (MediaQuery.of(context).size.height) * 0.22,
                             width: (MediaQuery.of(context).size.width) * 0.35,
                             child: SfCircularChart(
                                 title: ChartTitle(
@@ -155,8 +160,8 @@ class _MyAppState extends State<MyApp> {
                                 ]),
                           ),
                           Container(
-                            color: Colors.grey,
-                            height: MediaQuery.of(context).size.height * 0.33,
+                            color: Color(0xFFEFF3F4),
+                            height: MediaQuery.of(context).size.height * 0.22,
                             width: MediaQuery.of(context).size.width * 0.3,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -239,13 +244,13 @@ class _MyAppState extends State<MyApp> {
                         ],
                       ),
                       SizedBox(
-                        height: (MediaQuery.of(context).size.height) * 0.33,
+                        height: (MediaQuery.of(context).size.height) * 0.22,
                         width: 4.0,
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.grey,
-                          height: (MediaQuery.of(context).size.height) * 0.33,
+                          color: Color(0xFFEFF3F4),
+                          height: (MediaQuery.of(context).size.height) * 0.22,
                           width: (MediaQuery.of(context).size.width) * 0.5,
                           child: SfCartesianChart(
                               primaryXAxis: CategoryAxis(),
@@ -255,6 +260,7 @@ class _MyAppState extends State<MyApp> {
                               ),
                               series: <ChartSeries>[
                                 RangeColumnSeries<ChartDataLebel, String>(
+
                                   color: Colors.blue,
                                   dataSource: chartDataLebel,
                                   xValueMapper: (ChartDataLebel sales, _) =>
@@ -267,8 +273,9 @@ class _MyAppState extends State<MyApp> {
                                     isVisible: true,
 //                              position: CartesianLabelPosition.top
                                   ),
-                                )
-                              ]),
+                                ),
+                              ]
+                          ),
                         ),
                       ),
                     ],
@@ -280,9 +287,9 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: <Widget>[
                       Container(
-                        color: Colors.grey,
+                        color: Color(0xFFEFF3F4),
                         width: MediaQuery.of(context).size.width * 0.33,
-                        height: MediaQuery.of(context).size.height * 0.33,
+                        height: MediaQuery.of(context).size.height * 0.22,
                         child: SfCartesianChart(
                             title: ChartTitle(
                               text: 'Bar Chart',
@@ -292,7 +299,7 @@ class _MyAppState extends State<MyApp> {
                               // Renders bar chart
                               BarSeries<SalesDataBar, double>(
                                   dataSource: chartDataBar,
-                                  color: Colors.blueGrey,
+                                  color: Color(0xFFAFE2FD),
                                   xValueMapper: (SalesDataBar sales, _) =>
                                       sales.year,
                                   yValueMapper: (SalesDataBar sales, _) =>
@@ -300,14 +307,14 @@ class _MyAppState extends State<MyApp> {
                             ]),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.33,
+                        height: MediaQuery.of(context).size.height * 0.22,
                         width: 4.0,
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.grey,
+                          color: Color(0xFFEFF3F4),
                           width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.33,
+                          height: MediaQuery.of(context).size.height * 0.22,
                           child: SfCartesianChart(
                               title: ChartTitle(
                                 text: 'Bar Chart',
@@ -325,14 +332,14 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.33,
+                        height: MediaQuery.of(context).size.height * 0.22,
                         width: 4.0,
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.grey,
+                          color: Color(0xFFEFF3F4),
                           width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.33,
+                          height: MediaQuery.of(context).size.height * 0.22,
                           child: SfCartesianChart(
                               title: ChartTitle(
                                 text: 'Bar Chart',
