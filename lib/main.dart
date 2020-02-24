@@ -4,7 +4,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 void main() {
   runApp(MaterialApp(
-    showSemanticsDebugger: false,
+    debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));
 }
@@ -25,10 +25,10 @@ class _MyAppState extends State<MyApp> {
       SalesData(2014, 40)
     ];
     final List<ChartData> chartDataCircle = [
-      ChartData('David', 25),
-      ChartData('Steve', 38),
-      ChartData('Jack', 34),
-      ChartData('Others', 52)
+      ChartData('David', 25, Colors.blue),
+      ChartData('Steve', 38, Colors.white),
+      ChartData('Jack', 34, Colors.yellowAccent),
+      ChartData('Others', 52, Colors.pink)
     ];
 
     final List<ChartDataLebel> chartDataLebel = [
@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
                               series: <ChartSeries>[
                                 // Renders area chart
                                 AreaSeries<SalesData, double>(
-                                  color: Colors.blue,
+                                    color: Colors.blue,
                                     dataSource: chartData,
                                     xValueMapper: (SalesData sales, _) =>
                                         sales.year,
@@ -111,7 +111,7 @@ class _MyAppState extends State<MyApp> {
                                 series: <ChartSeries>[
                                   // Renders fast line chart
                                   FastLineSeries<SalesData, double>(
-                                    color: Colors.blue,
+                                      color: Colors.blue,
                                       dataSource: chartData,
                                       xValueMapper: (SalesData sales, _) =>
                                           sales.year,
@@ -133,6 +133,7 @@ class _MyAppState extends State<MyApp> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Container(
+                            padding: EdgeInsets.only(bottom: 32.0, left: 2.0),
                             color: Colors.grey,
                             height: (MediaQuery.of(context).size.height) * 0.33,
                             width: (MediaQuery.of(context).size.width) * 0.35,
@@ -157,85 +158,82 @@ class _MyAppState extends State<MyApp> {
                             color: Colors.grey,
                             height: MediaQuery.of(context).size.height * 0.33,
                             width: MediaQuery.of(context).size.width * 0.3,
-                            child: Padding(
-                              padding: const EdgeInsets.only(top:32.0,bottom: 32.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Container(
-                                          height: 10.0,
-                                          width: 10.0,
-                                          color: Colors.deepOrange,
-                                        ),
-                                        Text('20.4%'),
-                                        Text('ABC'),
-                                      ]),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Container(
-                                          height: 10.0,
-                                          width: 10.0,
-                                          color: Colors.deepOrangeAccent,
-                                        ),
-                                        Text('26.4%'),
-                                        Text('ABC'),
-                                      ]),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Container(
-                                          height: 10.0,
-                                          width: 10.0,
-                                          color: Colors.black54,
-                                        ),
-                                        Text('30.5%'),
-                                        Text('ABC'),
-                                      ]),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Container(
-                                          height: 10.0,
-                                          width: 10.0,
-                                          color: Colors.black,
-                                        ),
-                                        Text('36.4%'),
-                                        Text('ABC'),
-                                      ]),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Container(
-                                          height: 10.0,
-                                          width: 10.0,
-                                          color: Colors.lightBlueAccent,
-                                        ),
-                                        Text('39.5%'),
-                                        Text('ABC'),
-                                      ]),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Container(
-                                          height: 10.0,
-                                          width: 10.0,
-                                          color: Colors.blue,
-                                        ),
-                                        Text('40.5%'),
-                                        Text('ABC'),
-                                      ]),
-                                ],
-                              ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.deepOrange,
+                                      ),
+                                      Text('20.4%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.deepOrangeAccent,
+                                      ),
+                                      Text('26.4%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.black54,
+                                      ),
+                                      Text('30.5%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.black,
+                                      ),
+                                      Text('36.4%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.lightBlueAccent,
+                                      ),
+                                      Text('39.5%'),
+                                      Text('ABC'),
+                                    ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Container(
+                                        height: 10.0,
+                                        width: 10.0,
+                                        color: Colors.blue,
+                                      ),
+                                      Text('40.5%'),
+                                      Text('ABC'),
+                                    ]),
+                              ],
                             ),
                           ),
                         ],
@@ -283,7 +281,7 @@ class _MyAppState extends State<MyApp> {
                     children: <Widget>[
                       Container(
                         color: Colors.grey,
-                        width: MediaQuery.of(context).size.width * 0.5,
+                        width: MediaQuery.of(context).size.width * 0.33,
                         height: MediaQuery.of(context).size.height * 0.33,
                         child: SfCartesianChart(
                             title: ChartTitle(
@@ -300,6 +298,31 @@ class _MyAppState extends State<MyApp> {
                                   yValueMapper: (SalesDataBar sales, _) =>
                                       sales.sales)
                             ]),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.33,
+                        width: 4.0,
+                      ),
+                      Expanded(
+                        child: Container(
+                          color: Colors.grey,
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          height: MediaQuery.of(context).size.height * 0.33,
+                          child: SfCartesianChart(
+                              title: ChartTitle(
+                                text: 'Bar Chart',
+                                alignment: ChartAlignment.near,
+                              ),
+                              series: <ChartSeries>[
+                                // Renders bar chart
+                                BarSeries<SalesDataBar, double>(
+                                    dataSource: chartDataBar,
+                                    xValueMapper: (SalesDataBar sales, _) =>
+                                        sales.year,
+                                    yValueMapper: (SalesDataBar sales, _) =>
+                                        sales.sales)
+                              ]),
+                        ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.33,
