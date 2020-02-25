@@ -25,10 +25,12 @@ class _MyAppState extends State<MyApp> {
       SalesData(2014, 40)
     ];
     final List<ChartData> chartDataCircle = [
-      ChartData('David', 25, Colors.blue),
-      ChartData('Steve', 38, Colors.white),
-      ChartData('Jack', 34, Colors.yellowAccent),
-      ChartData('Others', 52, Colors.pink)
+      ChartData('David', 25, Colors.lightBlue),
+      ChartData('Steve', 60, Color(0xFF0066A8)),
+      ChartData('Jack', 5, Color(0XFF004875)),
+      ChartData('Joe', 5, Color(0XFF9BDFFF)),
+      ChartData('Others', 5, Color(0XFF4DC1FF)),
+
     ];
 
     final List<ChartDataLebel> chartDataLebel = [
@@ -76,6 +78,19 @@ class _MyAppState extends State<MyApp> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SfCartesianChart(
+                              primaryXAxis: NumericAxis(
+                                //Hide the gridlines of x-axis
+                                majorGridLines: MajorGridLines(width: 0),
+                                //Hide the axis line of x-axis
+                                axisLine: AxisLine(width: 0),
+                              ),
+                              /*primaryYAxis: NumericAxis(
+                                //Hide the gridlines of y-axis
+                                  majorGridLines: MajorGridLines(width: 0),
+                                  //Hide the axis line of y-axis
+                                  axisLine: AxisLine(width: 0)
+                              ),*/
+
                               title: ChartTitle(
                                 text: 'Area Chart',
                                 alignment: ChartAlignment.near,
@@ -111,6 +126,20 @@ class _MyAppState extends State<MyApp> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SfCartesianChart(
+                                primaryXAxis: NumericAxis(
+                                  //Hide the gridlines of x-axis
+                                  majorGridLines: MajorGridLines(width: 0),
+                                  //Hide the axis line of x-axis
+                                  axisLine: AxisLine(width: 0),
+                                ),
+                                /*primaryYAxis: NumericAxis(
+                                  //Hide the gridlines of y-axis
+                                    majorGridLines: MajorGridLines(width: 0),
+                                    //Hide the axis line of y-axis
+                                    axisLine: AxisLine(width: 0)
+                                ),*/
+
+
                                 title: ChartTitle(
                                   text: 'Line Chart',
                                   alignment: ChartAlignment.near,
@@ -121,7 +150,6 @@ class _MyAppState extends State<MyApp> {
                                 series: <ChartSeries>[
                                   // Renders fast line chart
                                   FastLineSeries<SalesData, double>(
-
                                       color: Color(0xFFAFE2FD),
                                       dataSource: chartData,
                                       xValueMapper: (SalesData sales, _) =>
@@ -182,7 +210,7 @@ class _MyAppState extends State<MyApp> {
                                       Container(
                                         height: 10.0,
                                         width: 10.0,
-                                        color: Colors.deepOrange,
+                                        color: Colors.lightBlue,
                                       ),
                                       Text('20.4%'),
                                       Text('ABC'),
@@ -194,7 +222,7 @@ class _MyAppState extends State<MyApp> {
                                       Container(
                                         height: 10.0,
                                         width: 10.0,
-                                        color: Colors.deepOrangeAccent,
+                                        color: Color(0xFF4DC1FF),
                                       ),
                                       Text('26.4%'),
                                       Text('ABC'),
@@ -206,7 +234,7 @@ class _MyAppState extends State<MyApp> {
                                       Container(
                                         height: 10.0,
                                         width: 10.0,
-                                        color: Colors.black54,
+                                        color: Color(0xFF0066A8),
                                       ),
                                       Text('30.5%'),
                                       Text('ABC'),
@@ -218,7 +246,7 @@ class _MyAppState extends State<MyApp> {
                                       Container(
                                         height: 10.0,
                                         width: 10.0,
-                                        color: Colors.black,
+                                        color: Color(0xFF004875),
                                       ),
                                       Text('36.4%'),
                                       Text('ABC'),
@@ -230,7 +258,7 @@ class _MyAppState extends State<MyApp> {
                                       Container(
                                         height: 10.0,
                                         width: 10.0,
-                                        color: Colors.lightBlueAccent,
+                                        color: Color(0xFF9BDFFF),
                                       ),
                                       Text('39.5%'),
                                       Text('ABC'),
@@ -242,7 +270,7 @@ class _MyAppState extends State<MyApp> {
                                       Container(
                                         height: 10.0,
                                         width: 10.0,
-                                        color: Colors.blue,
+                                        color: Color(0xFF4DC1FF),
                                       ),
                                       Text('40.5%'),
                                       Text('ABC'),
@@ -262,7 +290,17 @@ class _MyAppState extends State<MyApp> {
                           height: (MediaQuery.of(context).size.height) * 0.2,
                           width: (MediaQuery.of(context).size.width) * 0.5,
                           child: SfCartesianChart(
-                              primaryXAxis: CategoryAxis(),
+
+                              primaryYAxis: NumericAxis(
+                                //Hide the gridlines of y-axis
+                                  majorGridLines: MajorGridLines(width: 0),
+                                  //Hide the axis line of y-axis
+                                  axisLine: AxisLine(width: 0)
+                              ),
+                              primaryXAxis: CategoryAxis(
+                                isVisible: false
+                              ),
+
                               title: ChartTitle(
                                 text: 'Data lebel Chart',
                                 alignment: ChartAlignment.near,
@@ -272,7 +310,6 @@ class _MyAppState extends State<MyApp> {
                               ),
                               series: <ChartSeries>[
                                 RangeColumnSeries<ChartDataLebel, String>(
-
                                   color: Colors.blue,
                                   dataSource: chartDataLebel,
                                   xValueMapper: (ChartDataLebel sales, _) =>
@@ -305,6 +342,21 @@ class _MyAppState extends State<MyApp> {
                         child: Padding(
                           padding: const EdgeInsets.only(right: 8.0),
                           child: SfCartesianChart(
+                              /*primaryYAxis: NumericAxis(
+                                //Hide the gridlines of y-axis
+                                  majorGridLines: MajorGridLines(width: 0),
+                                  //Hide the axis line of y-axis
+                                  axisLine: AxisLine(width: 0)
+                              ),
+                              primaryXAxis: CategoryAxis(
+                                  isVisible: false
+                              ),*/
+                              primaryXAxis: NumericAxis(
+                                //Hide the gridlines of y-axis
+                                  majorGridLines: MajorGridLines(width: 0),
+                                  //Hide the axis line of y-axis
+                                  axisLine: AxisLine(width: 0)
+                              ),
                               title: ChartTitle(
                                 text: 'Bar Chart',
                                 alignment: ChartAlignment.near,
@@ -336,6 +388,12 @@ class _MyAppState extends State<MyApp> {
                           child: Padding(
                             padding: const EdgeInsets.only(right:8.0),
                             child: SfCartesianChart(
+                                primaryXAxis: NumericAxis(
+                                  //Hide the gridlines of y-axis
+                                    majorGridLines: MajorGridLines(width: 0),
+                                    //Hide the axis line of y-axis
+                                    axisLine: AxisLine(width: 0)
+                                ),
                                 title: ChartTitle(
                                   text: 'Bar Chart',
                                   alignment: ChartAlignment.near,
@@ -368,6 +426,12 @@ class _MyAppState extends State<MyApp> {
                           child: Padding(
                             padding: const EdgeInsets.only(right:8.0),
                             child: SfCartesianChart(
+                                primaryXAxis: NumericAxis(
+                                  //Hide the gridlines of y-axis
+                                    majorGridLines: MajorGridLines(width: 0),
+                                    //Hide the axis line of y-axis
+                                    axisLine: AxisLine(width: 0)
+                                ),
                                 title: ChartTitle(
                                   text: 'Bar Chart',
                                   alignment: ChartAlignment.near,
