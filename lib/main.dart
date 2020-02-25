@@ -30,7 +30,6 @@ class _MyAppState extends State<MyApp> {
       ChartData('Jack', 5, Color(0XFF004875)),
       ChartData('Joe', 5, Color(0XFF9BDFFF)),
       ChartData('Others', 5, Color(0XFF4DC1FF)),
-
     ];
 
     final List<ChartDataLebel> chartDataLebel = [
@@ -94,19 +93,15 @@ class _MyAppState extends State<MyApp> {
                               title: ChartTitle(
                                 text: 'Area Chart',
                                 alignment: ChartAlignment.near,
-                                textStyle: ChartTextStyle(
-                                  fontSize: 12.0
-                                ),
+                                textStyle: ChartTextStyle(fontSize: 12.0),
                               ),
                               series: <ChartSeries>[
                                 // Renders area chart
                                 AreaSeries<SalesData, double>(
-                                  legendItemText: '18',
-                                  isVisibleInLegend: false,
-
+                                    legendItemText: '18',
+                                    isVisibleInLegend: false,
                                     color: Color(0xFFAFE2FD),
                                     dataSource: chartData,
-
                                     xValueMapper: (SalesData sales, _) =>
                                         sales.year,
                                     yValueMapper: (SalesData sales, _) =>
@@ -139,14 +134,10 @@ class _MyAppState extends State<MyApp> {
                                     axisLine: AxisLine(width: 0)
                                 ),*/
 
-
                                 title: ChartTitle(
-                                  text: 'Line Chart',
-                                  alignment: ChartAlignment.near,
-                                  textStyle: ChartTextStyle(
-                                    fontSize: 12.0
-                                  )
-                                ),
+                                    text: 'Line Chart',
+                                    alignment: ChartAlignment.near,
+                                    textStyle: ChartTextStyle(fontSize: 12.0)),
                                 series: <ChartSeries>[
                                   // Renders fast line chart
                                   FastLineSeries<SalesData, double>(
@@ -178,12 +169,9 @@ class _MyAppState extends State<MyApp> {
                             width: (MediaQuery.of(context).size.width) * 0.35,
                             child: SfCircularChart(
                                 title: ChartTitle(
-                                  text: 'pie Chart',
-                                  alignment: ChartAlignment.near,
-                                  textStyle: ChartTextStyle(
-                                    fontSize: 12.0
-                                  )
-                                ),
+                                    text: 'pie Chart',
+                                    alignment: ChartAlignment.near,
+                                    textStyle: ChartTextStyle(fontSize: 12.0)),
                                 series: <CircularSeries>[
                                   // Render pie chart
                                   PieSeries<ChartData, String>(
@@ -290,24 +278,16 @@ class _MyAppState extends State<MyApp> {
                           height: (MediaQuery.of(context).size.height) * 0.2,
                           width: (MediaQuery.of(context).size.width) * 0.5,
                           child: SfCartesianChart(
-
                               primaryYAxis: NumericAxis(
-                                //Hide the gridlines of y-axis
+                                  //Hide the gridlines of y-axis
                                   majorGridLines: MajorGridLines(width: 0),
                                   //Hide the axis line of y-axis
-                                  axisLine: AxisLine(width: 0)
-                              ),
-                              primaryXAxis: CategoryAxis(
-                                isVisible: false
-                              ),
-
+                                  axisLine: AxisLine(width: 0)),
+                              primaryXAxis: CategoryAxis(isVisible: false),
                               title: ChartTitle(
-                                text: 'Data lebel Chart',
-                                alignment: ChartAlignment.near,
-                                textStyle: ChartTextStyle(
-                                  fontSize: 12.0
-                                )
-                              ),
+                                  text: 'Data lebel Chart',
+                                  alignment: ChartAlignment.near,
+                                  textStyle: ChartTextStyle(fontSize: 12.0)),
                               series: <ChartSeries>[
                                 RangeColumnSeries<ChartDataLebel, String>(
                                   color: Colors.blue,
@@ -323,8 +303,7 @@ class _MyAppState extends State<MyApp> {
 //                              position: CartesianLabelPosition.top
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                         ),
                       ),
                     ],
@@ -352,18 +331,15 @@ class _MyAppState extends State<MyApp> {
                                   isVisible: false
                               ),*/
                               primaryXAxis: NumericAxis(
-                                //Hide the gridlines of y-axis
+                                  //Hide the gridlines of y-axis
                                   majorGridLines: MajorGridLines(width: 0),
                                   //Hide the axis line of y-axis
-                                  axisLine: AxisLine(width: 0)
-                              ),
+                                  axisLine: AxisLine(width: 0)),
+
                               title: ChartTitle(
-                                text: 'Bar Chart',
-                                alignment: ChartAlignment.near,
-                                  textStyle: ChartTextStyle(
-                                      fontSize: 12.0
-                                  )
-                              ),
+                                  text: 'Bar Chart',
+                                  alignment: ChartAlignment.near,
+                                  textStyle: ChartTextStyle(fontSize: 12.0)),
                               series: <ChartSeries>[
                                 // Renders bar chart
                                 BarSeries<SalesDataBar, double>(
@@ -386,21 +362,17 @@ class _MyAppState extends State<MyApp> {
                           width: MediaQuery.of(context).size.width * 0.5,
                           height: MediaQuery.of(context).size.height * 0.2,
                           child: Padding(
-                            padding: const EdgeInsets.only(right:8.0),
+                            padding: const EdgeInsets.only(right: 8.0),
                             child: SfCartesianChart(
                                 primaryXAxis: NumericAxis(
-                                  //Hide the gridlines of y-axis
+                                    //Hide the gridlines of y-axis
                                     majorGridLines: MajorGridLines(width: 0),
                                     //Hide the axis line of y-axis
-                                    axisLine: AxisLine(width: 0)
-                                ),
+                                    axisLine: AxisLine(width: 0)),
                                 title: ChartTitle(
-                                  text: 'Bar Chart',
-                                  alignment: ChartAlignment.near,
-                                    textStyle: ChartTextStyle(
-                                        fontSize: 12.0
-                                    )
-                                ),
+                                    text: 'Bar Chart',
+                                    alignment: ChartAlignment.near,
+                                    textStyle: ChartTextStyle(fontSize: 12.0)),
                                 series: <ChartSeries>[
                                   // Renders bar chart
                                   BarSeries<SalesDataBar, double>(
@@ -409,8 +381,7 @@ class _MyAppState extends State<MyApp> {
                                           sales.year,
                                       yValueMapper: (SalesDataBar sales, _) =>
                                           sales.sales)
-                                ]
-                            ),
+                                ]),
                           ),
                         ),
                       ),
@@ -424,21 +395,17 @@ class _MyAppState extends State<MyApp> {
                           width: MediaQuery.of(context).size.width * 0.5,
                           height: MediaQuery.of(context).size.height * 0.2,
                           child: Padding(
-                            padding: const EdgeInsets.only(right:8.0),
+                            padding: const EdgeInsets.only(right: 8.0),
                             child: SfCartesianChart(
                                 primaryXAxis: NumericAxis(
-                                  //Hide the gridlines of y-axis
+                                    //Hide the gridlines of y-axis
                                     majorGridLines: MajorGridLines(width: 0),
                                     //Hide the axis line of y-axis
-                                    axisLine: AxisLine(width: 0)
-                                ),
+                                    axisLine: AxisLine(width: 0)),
                                 title: ChartTitle(
-                                  text: 'Bar Chart',
-                                  alignment: ChartAlignment.near,
-                                    textStyle: ChartTextStyle(
-                                        fontSize: 12.0
-                                    )
-                                ),
+                                    text: 'Bar Chart',
+                                    alignment: ChartAlignment.near,
+                                    textStyle: ChartTextStyle(fontSize: 12.0)),
                                 series: <ChartSeries>[
                                   // Renders bar chart
                                   BarSeries<SalesDataBar, double>(
